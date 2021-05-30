@@ -8,12 +8,12 @@ Your task is to, using the boilerplate provided, implement the functionality of 
 
 Goals:
 
-[] implement updateItem functionality to update state with the current contents of the <input> html element
+[Complete] implement updateItem functionality to update state with the current contents of the <input> html element
 
-[] implement addItem to fire HTTP request to add item from groceryItem state property to the server
+[Complete] implement addItem to fire HTTP request to add item from groceryItem state property to the server
 
-[] Implement proper server route handling of HTTP request to add item to the database
+[Complete] Implement proper server route handling of HTTP request to add item to the database
 
-[] Once the request-response cycle has completed successfully, update gList array in App state.
+[Complete] Once the request-response cycle has completed successfully, update gList array in App state.
 
-[] implement componentDidMount lifecyle method to pull in items from database each time the <App/> component mounts and render the items to the page
+[Complete] implement componentDidMount lifecyle method to pull in items from database each time the <App/> component mounts and render the items to the page

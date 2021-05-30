@@ -1,10 +1,11 @@
 import React from "react";
 
+//props should be an array (gList)
 const GroceryItem = (props) => {
-  return props.stuff.map((item, index) => (
-    <div key={index}>
-      <li key={index}> {item} </li>
-    </div>
+  return props.gList.map((item, index) => (
+    <ul key={index}>
+      <li key={index}> {item.item} </li>
+    </ul>
   ));
 };
 

@@ -9,25 +9,54 @@ export default class App extends React.Component {
       gList: [],
       GroceryItem: "",
     };
+    this.updateItem = this.updateItem.bind(this);
+    this.addItem = this.addItem.bind(this);
   }
 
-  componentDidMount() {/*your code here*/ }
-
-  addItem() {/*your code here */}
-
+  addItem() {
+    axios.post('/posty', {
+      GroceryItem: this.state.GroceryItem
+    })
+    .then(() => {
+      axios.get('/groceries')
+        .then(groceries => {
+          this.setState({
+            gList: groceries.data
+          })
+        })
+        .catch(err => console.error(err))
+    })
+    .catch(err => console.error(err))
+  }
+  
+    
   updateItem(event) {
-    console.log(event.target.value);
     event.preventDefault();
-    /*your code here*/
+    console.log(event.target.value);
+    this.setState({
+      GroceryItem: event.target.value
+    });
   }
-
+    
+  componentDidMount() {
+    axios.get('/groceries')
+      .then(groceries => {
+        this.setState({
+          gList: groceries.data
+        })
+      })
+      .catch(err => console.error(err))
+  }
+  
+ 
+  
   render() {
     return (
       <div>
-        <input placeholder="Add Item" />
-        <button>Submit</button>
+        <input placeholder="Add Item" onChange={this.updateItem}/>
+        <button onClick={this.addItem}>Submit</button>
         <ul>
-          <GroceryItem />
+          <GroceryItem gList={this.state.gList}/>
         </ul>
       </div>
     );
